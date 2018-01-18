@@ -1,5 +1,16 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=mysql", "root", "");
+require_once("inc.config.php");
+
+$pdo = null;
+try
+{
+	$pdo = new PDO(sprintf("mysql:host=%s;dbname=%s", $configs["hostname"], $configs["database"]), $configs["username"], $configs["password"]);
+}
+catch(Exception $ex)
+{
+	echo $ex;
+	die("PDO Connection error.");
+}
 
 $statement = $pdo->prepare("SELECT NOW() t;");
 $params = array(
@@ -7,4 +18,4 @@ $params = array(
 $statement->execute($params);
 
 $result = $statement->fetch(PDO::FETCH_ASSOC);
-print_r($result);
+echo "PDO Database time: ", $result["t"];
