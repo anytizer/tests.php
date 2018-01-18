@@ -7,6 +7,7 @@ Right after you installed a fresh copy of PHP/MySQL, test the environment using 
  * [PHP Info](tests/info.php)
  * [MySQLi](tests/mysqli.php)
  * [MySQL PDO](tests/mysql-pdo.php)
+ * [Server Time](tests/now.php)
 
 If the environment is successful, you should see no errors running these pages.
 
