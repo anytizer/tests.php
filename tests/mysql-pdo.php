@@ -4,7 +4,7 @@ require_once("inc.config.php");
 $pdo = null;
 try
 {
-	$pdo = new PDO(sprintf("mysql:host=%s;dbname=%s", $configs["hostname"], $configs["database"]), $configs["username"], $configs["password"]);
+	$pdo = new PDO(sprintf("mysql:host=%s;dbname=%s;charset=utf8mb4;", $configs["hostname"], $configs["database"]), $configs["username"], $configs["password"]);
 }
 catch(Exception $ex)
 {
